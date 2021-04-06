@@ -24,21 +24,6 @@
 	<dependencies>
 
 
-		<!-- Test dependencies -->
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>2.9.2</version>
-			<scope>test</scope>
-			<classifier>no-tzdb</classifier>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>30.1.1-jre</version>
-			<scope>test</scope>
-		</dependency>
-
 	</dependencies>
 
 

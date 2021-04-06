@@ -22,50 +22,20 @@
 -------------------------
 
 
-#[[##]]# Software Requirements
+## Software Requirements
 
   - Java ${java_version} Runtime Environment or higher
   - The latest distribution of Grouper Foundation Classes (GFC)
-  
-**For Domain generated Java wrappers:** 
-
-  - A Domain generated Java component
-
-
-#[[##]]# Project setup
-
-  Starting with version **3.4.x**, the GFC project is split up into the following sub projects.
-  
-  Each sub project is a maven module and is deployed as separate library.
 
 
 ------------------------------
 
 
-#[[##]]# API
+## Base API
 
-  The API project contains the classes needed to implement a GFC component.
-	
-  These API frameworks and also the implementations based on them are intended for distribution. The 
-  following API modules are created with the *minimal number of dependency requirements* so that implementations 
-  using these can be distributed to our customers without having to deal with legal questions from 
-  other dependencies.
-  		
+  This project contains the **very minimal classes and interfaces needed to implement a GFC component**.
 
-#[[###]]# Base API
-
-  This module contains the **very minimal classes and interfaces needed to implement a GFC component**.
-
-  If you are starting fresh with implementing a component directly in GFC (no Domain language generated java 
-  for example), start here.
+  [GFC Base API](./base-api/doc/base-api.md)
   
-
-#[[###]]# Domain API
-
-  This module extends the *Base API* module and adds some 3M Domain language specifics to the API (CTL/ROT paths, 
-  resources configuration XML, ...).
-	
-  If you are wrapping a **3M Domain language generated Java component** with a GFC implementation, then 
-  this is the API you should use.
 
 

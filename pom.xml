@@ -16,7 +16,6 @@
 
 	<modules>
 		<module>base-api</module>
-		<module>domain-api</module>
 	</modules>
 
 	<properties>
@@ -110,7 +109,6 @@
 							<encoding>UTF-8</encoding>
 							<consoleOutput>true</consoleOutput>
 							<failsOnError>true</failsOnError>
-							<linkXRef>false</linkXRef>
 							<violationSeverity>warning</violationSeverity>
 						</configuration>
 						<goals>
