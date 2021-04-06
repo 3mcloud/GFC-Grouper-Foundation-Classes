@@ -1,0 +1,39 @@
+<<<Distribution>>>
+
+* Java JAR distribution
+
+    GFC is distributed on  {{{https://nexus.iw.aws.3mhis.net}Nexus}} as a Java .jar file in both as a SNAPSHOT (during new version development) and as a release.
+    The Maven dependency for version 3.3.0 release is below.
+
++---
+    <dependency>
+        <groupId>com.mmm.his.cer</groupId>
+        <artifactId>gfc</artifactId>
+        <version>3.3.0</version>
+    </dependency>
++---
+
+    An example of the SNAPSHOT version of GFC is:
+
++---
+    <dependency>
+        <groupId>com.mmm.his.cer</groupId>
+        <artifactId>gfc</artifactId>
+        <version>3.3.0-SNAPSHOT</version>
+    </dependency>
++---
+
+    GFC's goal was to not use any other libraries for its dependencies, but everything needs logging at some level
+    and GFC uses Simple Logging Facade for Java ({{{https://www.slf4j.org/}SLF4J}}) for that.  Its dependency is similar to what is displayed
+    below, except that you will have to replace the specific logging mechanism and its version.  Check out 
+    the web site for more details:
+
++---
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j...</artifactId>
+        <version>...</version>
+    </dependency>
++---
+
+

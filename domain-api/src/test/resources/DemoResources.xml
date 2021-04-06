@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<component-configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://w0145056:8081/gfc/GFCConfiguration.xsd">
+	<supported-datasources>
+		<supported-datasource type="bin" />
+		<supported-datasource type="ctl" />
+	</supported-datasources>
+	<component-version value="09.0.0">
+		<dependencies>
+			<component-dependency type="APR" version="31.0.0" />
+			<component-dependency type="CRG" version="02.0.0" />
+		</dependencies>
+	</component-version>
+	<component-version value="10.0.0">
+		<dependencies>
+			<component-dependency type="DEMO" version="10.0.0" />
+		</dependencies>
+	</component-version>
+	<component-version value="11.0.0">
+		<dependencies>
+			<component-resource type="ctl" path="component.ctl" />
+			<component-resource type="ctl" path="support.ctl" />
+			<component-dependency type="APR" version="31.0.0" />
+			<component-dependency type="CRG" version="02.0.0" />
+		</dependencies>
+	</component-version>
+</component-configuration>

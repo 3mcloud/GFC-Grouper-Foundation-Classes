@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Grouper Foundation Classes">
+  <bannerLeft>
+    <name>3M GFC</name>
+    <src>
+      https://nexus.iw.aws.3mhis.net/content/sites/site/maven-site/0.0.2/images/3mlogo.jpg
+    </src>
+    <title>Grouper Foundation Classes</title>
+  </bannerLeft>
+
+  <publishDate position="left"/>
+  <version position="left"/>
+
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.7</version>
+	</skin>
+
+	<custom>
+		<fluidoSkin>
+			<topBarEnabled>true</topBarEnabled>
+			<navBarStyle>navbar-inverse</navBarStyle>
+			<sideBarEnabled>false</sideBarEnabled>
+		</fluidoSkin>
+	</custom>
+	
+  <body>
+    <menu name="Overview">
+      <item name="Home" href="index.html"/>
+      <item name="Usage" href="usage.html"/>
+      <item name="Javadocs" href="apidocs/index.html"/>
+      <item name="Depedencies" href="dependencies.html"/>
+      <item name="Dependency Info" href="dependency-info.html"/>
+      <item name="Distribution" href="distribution-management.html"/>
+    </menu>
+  </body>
+</project>

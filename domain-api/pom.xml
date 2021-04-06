@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.mmm.his.cer.gfc</groupId>
+		<artifactId>gfc-api</artifactId>
+		<version>3.4.9-SNAPSHOT</version>
+	</parent>
+
+	<groupId>com.mmm.his.cer.gfc.gfc-api</groupId>
+	<artifactId>gfc-domain-api</artifactId>
+	<packaging>jar</packaging>
+
+	<name>Grouper Foundation Classes - Domain Java API</name>
+	<description>API to be used for Domain language generated JAVA components</description>
+  
+    <organization>
+      <name>3M HIS</name>
+    </organization>
+
+	<properties>
+		<slf4jVersion>1.7.26</slf4jVersion>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.mmm.his.cer.gfc.gfc-api</groupId>
+			<artifactId>gfc-base-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4jVersion}</version>
+		</dependency>
+
+
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>com.mmm.his.cer.component</groupId>
+			<artifactId>msdrg</artifactId>
+			<version>37.0.1.0-SNAPSHOT</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.mmm.his.cer</groupId>
+					<artifactId>gfc</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.mmm.his.cer.component</groupId>
+			<artifactId>guni</artifactId>
+			<!-- Using this older GFC build (pre GFC "lite") to run it in BackwardsCompatibiltyTest.java -->
+			<version>37.0.0.3</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.mmm.his.cer</groupId>
+					<artifactId>gfc</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+	</dependencies>
+
+
+	<build>
+		<finalName>gfc-${parent.artifactId}-${project.artifactId}-${project.version}</finalName>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<configuration>
+					<!-- Skip for now -->
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+</project>
