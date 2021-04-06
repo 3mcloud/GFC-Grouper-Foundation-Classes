@@ -24,7 +24,7 @@
 
 ## Software Requirements
 
-  - Java ${java_version} Runtime Environment or higher
+  - Java 1.8 Runtime Environment or higher
   - The latest distribution of Grouper Foundation Classes (GFC)
 
 
@@ -35,7 +35,7 @@
 
   This project contains the **very minimal classes and interfaces needed to implement a GFC component**.
 
-  [GFC Base API](./base-api/doc/base-api.md)
+  [GFC Base API](./base-api)
   
 
 
