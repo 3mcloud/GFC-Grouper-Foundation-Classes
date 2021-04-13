@@ -38,6 +38,7 @@ public class DiagnosisCodeTest {
 
   @Test
   public void testConstructWithCharPoa() {
+    char poaChar = 'Y';
     GfcPoa poa = GfcPoa.fromChar('Y', GfcPoa.Y);
     DiagnosisCode code = new DiagnosisCode("A001", poa);
 

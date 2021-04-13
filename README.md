@@ -35,7 +35,7 @@
 
   This project contains the **very minimal classes and interfaces needed to implement a GFC component**.
 
-  [GFC Base API](./base-api)
+  [GFC Base API](./doc/BaseApi.md)
   
 
 

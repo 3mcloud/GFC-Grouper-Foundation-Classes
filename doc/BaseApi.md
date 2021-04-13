@@ -1,7 +1,7 @@
 # GFC Base API
 
 
-  <img style="float: right;" width="500px" height="265px" src="./doc/images/gfc_base_api.svg" alt="Base API" />
+  <img style="float: right;" width="500px" height="265px" src="./images/gfc_base_api.svg" alt="Base API" />
 
 
 ## Overview
@@ -60,7 +60,7 @@ The *base API* can be included in a Maven project with:
 
 ### Claim
 
-  <img style="float: right;" width="350px" height="232px" src="./doc/images/gfc_claim.svg" alt="Base API" />
+  <img style="float: right;" width="350px" height="232px" src="./images/gfc_claim.svg" alt="Base API" />
 
 
   The input/output container of a GFC component is called "Claim". This is just a naming chosen for the GFC framework, your implementation can name it whatever describes your use case best.
