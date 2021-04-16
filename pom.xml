@@ -5,7 +5,7 @@
 
 	<groupId>com.mmm.his.cer.gfc.gfc-api</groupId>
 	<artifactId>gfc-base-api</artifactId>
-    <version>3.4.9</version>
+    <version>3.5.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Grouper Foundation Classes - Base API</name>
