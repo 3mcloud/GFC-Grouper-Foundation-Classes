@@ -1,14 +1,14 @@
 # Grouper Foundation Classes (GFC)
 
   The GFC framework is a reusable and extensible foundation class library, on which and through
-  which all future C&amp;ER components (groupers, editors, ...) will be built, consisting of common framework and common 
-  business objects that support our primary grouper deliverables.
+  which all 3M components will be built, consisting of common framework and common 
+  business objects.
   
   
-  Furthermore, the GFC project aligns with HIS TLO strategies and addressing C&amp;ER challenges:
+  Furthermore, the GFC project aligns with 3M TLO strategies and addressing challenges like:
 
   - Ensuring proper operation in SOA environment
-  - Modernizing grouper architecture (data handling, code architecture, interfacing, OO design)
+  - Modernizing component architecture (data handling, code architecture, interfacing, OO design)
   - Optimizing performance (multi-threading, multi-processing capability, efficient architecture)
   - Lowering maintenance cost
   - Producing more reusable code
