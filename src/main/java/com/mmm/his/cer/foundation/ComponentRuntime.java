@@ -1,10 +1,7 @@
 package com.mmm.his.cer.foundation;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * A class defining options to configure a {@link Processable}. Options will be defined as an
@@ -75,6 +72,19 @@ public abstract class ComponentRuntime<K extends Enum<K>> implements Map<K, Obje
   @Override
   public Collection<Object> values() {
     return map.values();
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null) return false;
+    ComponentRuntime<?> that = (ComponentRuntime<?>) o;
+    return Objects.equals(map, that.map);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(map);
   }
 
 }
