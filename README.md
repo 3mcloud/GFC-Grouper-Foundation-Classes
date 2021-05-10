@@ -5,7 +5,7 @@
   business objects that support our primary grouper deliverables.
   
   
-  Furthermore, the GFC project aligns with HIS TLO strategies and addressing C&amp;ER challenges:
+  The GFC project addresses challenges like:
 
   - Ensuring proper operation in SOA environment
   - Modernizing grouper architecture (data handling, code architecture, interfacing, OO design)
