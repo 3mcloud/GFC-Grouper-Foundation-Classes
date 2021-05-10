@@ -8,7 +8,7 @@ public class HashAndEqualsTest {
     enum MyTestEnum {One, Two}
 
     @Test
-    public void testEquals_one() {
+    public void testEquals() {
         ComponentRuntime<MyTestEnum> objA = new ComponentRuntime<MyTestEnum>() {};
         ComponentRuntime<MyTestEnum> objB = new ComponentRuntime<MyTestEnum>() {};
         objA.put(MyTestEnum.One, "one");
@@ -19,7 +19,7 @@ public class HashAndEqualsTest {
     }
 
     @Test
-    public void testEquals_two() {
+    public void testNotEquals() {
         ComponentRuntime<MyTestEnum> objA = new ComponentRuntime<MyTestEnum>() {};
         ComponentRuntime<MyTestEnum> objB = new ComponentRuntime<MyTestEnum>() {};
         objA.put(MyTestEnum.One, "one");
@@ -30,7 +30,7 @@ public class HashAndEqualsTest {
     }
 
     @Test
-    public void testHashCode_one() {
+    public void testHashCode() {
         ComponentRuntime<MyTestEnum> objA = new ComponentRuntime<MyTestEnum>() {};
         ComponentRuntime<MyTestEnum> objB = new ComponentRuntime<MyTestEnum>() {};
         objA.put(MyTestEnum.One, "one");
@@ -41,7 +41,7 @@ public class HashAndEqualsTest {
     }
 
     @Test
-    public void testHashCode_two() {
+    public void testNotHashCode() {
         ComponentRuntime<MyTestEnum> objA = new ComponentRuntime<MyTestEnum>() {};
         ComponentRuntime<MyTestEnum> objB = new ComponentRuntime<MyTestEnum>() {};
         objA.put(MyTestEnum.One, "one");
