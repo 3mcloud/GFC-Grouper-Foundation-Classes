@@ -81,7 +81,7 @@ public class TestSerialization {
     serializeObject(new DatePeriod(new GfcDate(2015, 10, 1), new GfcDate(2016, 10, 1)));
   }
 
-  private void serializeObject(Object object) throws Exception {
+  private void serializeObject(Object object) {
     try {
       oout.writeObject(object);
     } catch (Exception exc) {

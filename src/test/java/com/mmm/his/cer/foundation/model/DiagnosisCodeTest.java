@@ -9,7 +9,8 @@ import org.junit.Test;
 
 public class DiagnosisCodeTest {
 
-  public DiagnosisCodeTest() {}
+  public DiagnosisCodeTest() {
+  }
 
   @Test
   public void testDefaultValues() {

@@ -12,6 +12,7 @@ import java.util.Locale;
 
 
 interface HasPattern {
+
   String getPattern();
 }
 
@@ -19,18 +20,18 @@ interface HasPattern {
  * Provides a way to convert a date string to a GfcDate when using a built in conversion, or to
  * a standard Date when not using a built in format.  GfcDate focus on month,day,year which reduces
  * the overhead of time and local calculations.
- * 
+ *
  * @author Tim Gallagher based on the original work by Mark Davis, Chen-Lieh Huang, Alan Liu
  */
 public class SimpleGfcDateFormat {
 
-  static final HasPattern[] FORMATS = new HasPattern[] {
-    new YYYYMMDD_Format(), new DDMMYYY_Format(), new MMDDYYY_Format(),
-    new DDMMYYYSlash_Format(), new MMDDYYYSlash_Format() };
-  
+  static final HasPattern[] FORMATS = new HasPattern[]{
+      new YYYYMMDD_Format(), new DDMMYYY_Format(), new MMDDYYY_Format(),
+      new DDMMYYYSlash_Format(), new MMDDYYYSlash_Format()};
+
   private Format simpleDateFormat;
   private boolean builtInFormat;
-  private String pattern;
+  private final String pattern;
 
   /**
    * Constructs a <code>SimpleGfcDateFormat</code> using the default pattern and date format symbols
@@ -47,8 +48,8 @@ public class SimpleGfcDateFormat {
    * locales. For full coverage, use the factory methods in the {@link DateFormat} class.
    *
    * @param pattern the pattern describing the date and time format
-   * @exception NullPointerException if the given pattern is null
-   * @exception IllegalArgumentException if the given pattern is invalid
+   * @throws NullPointerException     if the given pattern is null
+   * @throws IllegalArgumentException if the given pattern is invalid
    */
   public SimpleGfcDateFormat(String pattern) {
     this(pattern, Locale.getDefault());
@@ -60,9 +61,9 @@ public class SimpleGfcDateFormat {
    * For full coverage, use the factory methods in the {@link DateFormat} class.
    *
    * @param pattern the pattern describing the date and time format
-   * @param locale the locale whose date format symbols should be used
-   * @exception NullPointerException if the given pattern is null
-   * @exception IllegalArgumentException if the given pattern is invalid
+   * @param locale  the locale whose date format symbols should be used
+   * @throws NullPointerException     if the given pattern is null
+   * @throws IllegalArgumentException if the given pattern is invalid
    */
   public SimpleGfcDateFormat(String pattern, Locale locale) {
     this.pattern = pattern;
@@ -74,20 +75,20 @@ public class SimpleGfcDateFormat {
         break;
       }
     }
-    
+
     if (this.simpleDateFormat == null) {
       this.simpleDateFormat = new SimpleDateFormat(pattern, locale);
     }
-    
+
   }
 
   /**
    * Constructs a <code>SimpleGfcDateFormat</code> using the given pattern and date format symbols.
    *
-   * @param pattern the pattern describing the date and time format
+   * @param pattern       the pattern describing the date and time format
    * @param formatSymbols the date format symbols to be used for formatting
-   * @exception NullPointerException if the given pattern or formatSymbols is null
-   * @exception IllegalArgumentException if the given pattern is invalid
+   * @throws NullPointerException     if the given pattern or formatSymbols is null
+   * @throws IllegalArgumentException if the given pattern is invalid
    */
   public SimpleGfcDateFormat(String pattern, DateFormatSymbols formatSymbols) {
     this.pattern = pattern;
@@ -110,7 +111,7 @@ public class SimpleGfcDateFormat {
    * Gets the date formatter with the given formatting style for the given locale.
    *
    * @param dateStyle the given formatting style. For example, SHORT for "M/d/yy" in the US locale.
-   * @param locale the given locale.
+   * @param locale    the given locale.
    */
   public SimpleGfcDateFormat(int dateStyle, Locale locale) {
     this.pattern = Integer.toString(dateStyle);
@@ -166,6 +167,7 @@ public class SimpleGfcDateFormat {
    * Basic format for date as yyyyMMdd that avoids the overhead of the SimpleDateFormat
    */
   static class YYYYMMDD_Format extends Format implements HasPattern {
+
     private static final long serialVersionUID = 1L;
     public static final String PATTERN = "YYYYMMDD";
 
@@ -193,9 +195,9 @@ public class SimpleGfcDateFormat {
 
     /**
      * Parses the date string starting at a specific location within the string.
-     * 
+     *
      * @param source full string to parse
-     * @param pos position to start with.
+     * @param pos    position to start with.
      * @return non-null GfcDate
      */
     @Override
@@ -221,6 +223,7 @@ public class SimpleGfcDateFormat {
    * Basic format for date as MMddyyyy that avoids the overhead of the SimpleDateFormat
    */
   static class MMDDYYY_Format extends Format implements HasPattern {
+
     private static final long serialVersionUID = 1L;
     public static final String PATTERN = "MMDDYYYY";
 
@@ -248,9 +251,9 @@ public class SimpleGfcDateFormat {
 
     /**
      * Parses the date string starting at a specific location within the string.
-     * 
+     *
      * @param source full string to parse
-     * @param pos position to start with.
+     * @param pos    position to start with.
      * @return non-null GfcDate
      */
     @Override
@@ -276,6 +279,7 @@ public class SimpleGfcDateFormat {
    * Basic format for date as MMddyyyy that avoids the overhead of the SimpleDateFormat
    */
   static class DDMMYYY_Format extends Format implements HasPattern {
+
     private static final long serialVersionUID = 1L;
     public static final String PATTERN = "DDMMYYYY";
 
@@ -303,9 +307,9 @@ public class SimpleGfcDateFormat {
 
     /**
      * Parses the date string starting at a specific location within the string.
-     * 
+     *
      * @param source full string to parse
-     * @param pos position to start with.
+     * @param pos    position to start with.
      * @return non-null GfcDate
      */
     @Override
@@ -331,6 +335,7 @@ public class SimpleGfcDateFormat {
    * Basic format for date as MMddyyyy that avoids the overhead of the SimpleDateFormat
    */
   static class MMDDYYYSlash_Format extends Format implements HasPattern {
+
     private static final long serialVersionUID = 1L;
     public static final String PATTERN = "MM/DD/YYYY";
 
@@ -354,7 +359,7 @@ public class SimpleGfcDateFormat {
       }
       toAppendTo.append(gfcDate.getDay());
       toAppendTo.append('/');
-      
+
       toAppendTo.append(gfcDate.getYear());
 
       return toAppendTo;
@@ -363,9 +368,9 @@ public class SimpleGfcDateFormat {
     /**
      * Parses the date string starting at a specific location within the string.
      * This input can be either single char month or day.
-     * 
+     *
      * @param source full string to parse
-     * @param pos position to start with.
+     * @param pos    position to start with.
      * @return non-null GfcDate
      */
     @Override
@@ -390,6 +395,7 @@ public class SimpleGfcDateFormat {
    * Basic format for date as MMddyyyy that avoids the overhead of the SimpleDateFormat
    */
   static class DDMMYYYSlash_Format extends Format implements HasPattern {
+
     private static final long serialVersionUID = 1L;
     public static final String PATTERN = "DD/MM/YYYY";
 
@@ -397,7 +403,7 @@ public class SimpleGfcDateFormat {
     public String getPattern() {
       return PATTERN;
     }
-    
+
     @Override
     public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
       GfcDate gfcDate = (GfcDate) obj;
@@ -407,7 +413,7 @@ public class SimpleGfcDateFormat {
       }
       toAppendTo.append(gfcDate.getDay());
       toAppendTo.append('/');
-      
+
       if (gfcDate.getMonth() < 10) {
         toAppendTo.append("0");
       }
@@ -422,9 +428,9 @@ public class SimpleGfcDateFormat {
     /**
      * Parses the date string starting at a specific location within the string.
      * This input can be either single char month or day.
-     * 
+     *
      * @param source full string to parse
-     * @param pos position to start with.
+     * @param pos    position to start with.
      * @return non-null GfcDate
      */
     @Override
@@ -445,5 +451,5 @@ public class SimpleGfcDateFormat {
     }
   }
 
-  
+
 }

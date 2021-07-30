@@ -6,10 +6,11 @@ import java.io.Serializable;
  * This holds a non-null code value. However, if this class is extended, then the non-null can not
  * be guaranteed. This class does not perform any validation on length or format of the code value
  *
- * @author a2jagzz
+ * @author Jason Flores
  * @author Tim Gallagher
  */
 public abstract class Code implements ICode, Serializable, IHasFlags {
+
   private static final long serialVersionUID = 1472323677263570520L;
 
   protected static final String BLANK = "";
@@ -36,8 +37,6 @@ public abstract class Code implements ICode, Serializable, IHasFlags {
 
   /**
    * sets the code value to blank if it is null, or calls the setValue() to allow overriding
-   *
-   * @param value
    */
   public Code(String value) {
     setValue(value);
@@ -48,8 +47,6 @@ public abstract class Code implements ICode, Serializable, IHasFlags {
 
   /**
    * Sets the code value
-   *
-   * @param codeValue
    */
   @Override
   public void setValue(String codeValue) {
@@ -93,14 +90,11 @@ public abstract class Code implements ICode, Serializable, IHasFlags {
   /**
    * Determines if the flags list is empty. This method ensures late object creation if there are no
    * flags yet.
-   *
-   * @return
    */
   @Override
   public boolean isFlagsEmpty() {
-    return this.flags != null ? this.flags.isEmpty() : true;
+    return this.flags == null || this.flags.isEmpty();
   }
-
 
 
 }

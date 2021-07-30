@@ -1,6 +1,5 @@
 package com.mmm.his.cer.foundation;
 
-import com.mmm.his.cer.foundation.exception.FoundationException;
 import com.mmm.his.cer.foundation.transfer.IClaim;
 import com.mmm.his.cer.foundation.utility.ComponentClassUtil;
 
@@ -18,9 +17,7 @@ import java.io.Closeable;
  * @param <I> claim type implementation
  * @param <K> enumerated options
  * @param <O> ComponentRuntime implementation based on enumerated K
- *
- *
- * @author a2jagzz
+ * @author Jason Flores
  */
 public interface Processable<I extends IClaim, K extends Enum<K>, O extends ComponentRuntime<K>>
     extends Closeable {
@@ -28,19 +25,15 @@ public interface Processable<I extends IClaim, K extends Enum<K>, O extends Comp
   /**
    * The main method call to invoke component logic.
    *
-   * @since 1.0
    * @param inputAndOutput claim instance which contains input and output values
-   * @throws FoundationException encountered during component logic. See component-specific
-   *         documentation for possible errors.
+   * @since 1.0
    */
-  public void process(I inputAndOutput) throws FoundationException;
+  void process(I inputAndOutput);
 
   /**
-   * @since 1.0
    * @param option under which the current component should be constrained
-   * @throws FoundationException encountered during configuration. See component-specific
-   *         documentation for possible errors.
+   * @since 1.0
    */
-  public void reconfigure(O option) throws FoundationException;
+  void reconfigure(O option);
 
 }

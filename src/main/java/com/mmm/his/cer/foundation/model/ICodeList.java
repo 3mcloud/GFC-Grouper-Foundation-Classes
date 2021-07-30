@@ -3,28 +3,28 @@ package com.mmm.his.cer.foundation.model;
 import java.util.List;
 
 /**
- *
- * @author a2jagzz
- * @author a0dulzz
+ * @author Jason Flores
+ * @author Timothy Gallagher
  */
 public interface ICodeList {
+
   /**
    * Add a code
    *
    * @param code implementing the ICode interface
    */
-  public void addCode(ICode code);
+  void addCode(ICode code);
 
   /**
    * @return all associated codes
    */
-  public List<ICode> getCodes();
+  List<ICode> getCodes();
 
   /**
    * @param codeType class type of codes to return
-   * @param <C> class type of codes to return
+   * @param <C>      class type of codes to return
    * @return a list of codes based on their class designation
    */
-  public <C> List<C> getCodes(Class<C> codeType);
+  <C> List<C> getCodes(Class<C> codeType);
 
 }

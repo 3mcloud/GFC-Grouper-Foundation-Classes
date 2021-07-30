@@ -5,16 +5,14 @@ import com.mmm.his.cer.foundation.transfer.IClaim;
 import java.util.List;
 
 /**
- *
- * @author a2jagzz
- *
+ * @author Jason Flores
  */
 public interface IClaimList {
 
-  public void addClaim(IClaim claim);
+  void addClaim(IClaim claim);
 
-  public List<IClaim> getClaims();
+  List<IClaim> getClaims();
 
-  public void setClaims(List<IClaim> claims);
+  void setClaims(List<IClaim> claims);
 
 }

@@ -7,12 +7,13 @@ import java.util.*;
  * A class defining options to configure a {@link Processable}. Options will be defined as an
  * enumeration of keys (K) and String (or any {@link Object}) values.
  *
- * @author a2jagzz
  * @param <K> The option key type
+ * @author Jason Flores
  */
 public abstract class ComponentRuntime<K extends Enum<K>> implements Map<K, Object>, Serializable {
+
   private static final long serialVersionUID = -3438262715909716998L;
-  private Map<K, Object> map = new HashMap<K, Object>();
+  private final Map<K, Object> map = new HashMap<>();
 
   @Override
   public void clear() {
@@ -55,7 +56,7 @@ public abstract class ComponentRuntime<K extends Enum<K>> implements Map<K, Obje
   }
 
   @Override
-  public void putAll(Map<? extends K, ? extends Object> values) {
+  public void putAll(Map<? extends K, ?> values) {
     map.putAll(values);
   }
 
@@ -76,8 +77,12 @@ public abstract class ComponentRuntime<K extends Enum<K>> implements Map<K, Obje
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null) {
+      return false;
+    }
     ComponentRuntime<?> that = (ComponentRuntime<?>) o;
     return Objects.equals(map, that.map);
   }

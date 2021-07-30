@@ -12,13 +12,13 @@ public interface IHasFlags {
    *
    * @return non-null IFlags.
    */
-  public IFlags getFlags();
+  IFlags getFlags();
 
   /**
    * determines if the items has any flags associated
    *
    * @return true if the flag list is empty
    */
-  public boolean isFlagsEmpty();
+  boolean isFlagsEmpty();
 
 }

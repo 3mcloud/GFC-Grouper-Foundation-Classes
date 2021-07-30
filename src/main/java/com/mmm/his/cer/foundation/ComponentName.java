@@ -14,7 +14,6 @@ import com.mmm.his.cer.foundation.utility.ComponentClassUtil;
  * implement {@link ComponentPackage} along with this {@link ComponentName} interface.
  *
  * @author Thomas Naeff
- *
  */
 public interface ComponentName {
 
@@ -25,6 +24,6 @@ public interface ComponentName {
    *
    * @return The component name, typically in sentence case to conform to the Java standards
    */
-  public String getName();
+  String getName();
 
 }

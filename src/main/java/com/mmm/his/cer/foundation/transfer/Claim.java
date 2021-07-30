@@ -10,13 +10,13 @@ import java.util.List;
 /**
  * Abstract class defining the base characteristics all claims should have.
  *
- *
- * @author a2jagzz
- * @author a0dulzz
- * @author a3bygzz
- * @author a30w4zz
+ * @author Thomas Naeff
+ * @author Mike Funaro
+ * @author Jason Flores
+ * @author Timothy Gallagher
  */
 public abstract class Claim implements IClaim, ICodeList {
+
   private static final long serialVersionUID = -1604780616863716472L;
 
   /**
@@ -34,7 +34,7 @@ public abstract class Claim implements IClaim, ICodeList {
    * project was not split up and the ComponentFactory and other code was in one single project.
    */
   @Deprecated
-  protected ComponentType type;
+  protected final ComponentType type;
 
   /**
    * A new claim.<br />
@@ -43,17 +43,16 @@ public abstract class Claim implements IClaim, ICodeList {
    *
    * @param type of Component to associate with
    * @deprecated Use the constructor without {@link ComponentType}. {@link ComponentType} will be
-   *             removed in future releases.
+   *     removed in future releases.
    */
   @Deprecated
   public Claim(ComponentType type) {
     this.type = type;
-    codes = new LinkedList<ICode>();
+    codes = new LinkedList<>();
   }
 
   /**
    * A new claim.
-   *
    */
   public Claim() {
     this(null);
@@ -81,7 +80,7 @@ public abstract class Claim implements IClaim, ICodeList {
    */
   @Override
   public <C> List<C> getCodes(Class<C> codeType) {
-    List<C> subList = new LinkedList<C>();
+    List<C> subList = new LinkedList<>();
     for (ICode c : this.getCodes()) {
       if (codeType.isInstance(c)) {
         @SuppressWarnings("unchecked")

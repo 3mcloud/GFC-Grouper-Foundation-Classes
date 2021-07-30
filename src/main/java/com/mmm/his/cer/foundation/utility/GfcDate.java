@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.TimeZone;
 
 /**
- *
  * <p>
  * This Date object holds only Elapsed days, month, day and year information and not any time
  * oriented information in order to avoid any time oriented processing overhead that is not actually
@@ -70,10 +69,9 @@ import java.util.TimeZone;
  * <p>
  * It is highly recommended that Components use the isValid() to ensure that elapsed days, year,
  * month and day contain valid information prior to using them to calculate.
- * 
- * @deprecated Use {@link LocalDate} instead
  *
  * @author Tim Gallagher - 3M HIS CER
+ * @deprecated Use {@link LocalDate} instead
  */
 @Deprecated
 public class GfcDate implements Serializable, Cloneable, Comparable {
@@ -128,9 +126,9 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
   /**
    * Creates an instance with year, month and day, validating them
    *
-   * @param year value
+   * @param year  value
    * @param month value
-   * @param day value
+   * @param day   value
    */
   public GfcDate(int year, int month, int day) {
     this.gfcState = new GfcDateMDYInitialized(month, day, year);
@@ -160,9 +158,8 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
   /**
    * Constructing from milliseconds
    *
-   * @param milliseconds
    * @deprecated - unless the milliseconds are adjusted to GMT this may created a date that is
-   * off by 1 day from the original date.
+   *     off by 1 day from the original date.
    */
   @Deprecated
   public GfcDate(long milliseconds) {
@@ -183,12 +180,12 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
   /**
    * Creates an instance used mostly for cloning this object
    *
-   * @param year integer
-   * @param month integer
-   * @param day integer
+   * @param year    integer
+   * @param month   integer
+   * @param day     integer
    * @param elapsed integer
    * @param strDate from string
-   * @param valid flag indicating if the data supplied reflects a valid date
+   * @param valid   flag indicating if the data supplied reflects a valid date
    */
   protected GfcDate(int year, int month, int day, int elapsed, String strDate, boolean valid) {
     this.gfcState = new GfcDateValidated(year, month, day, elapsed, strDate, valid);
@@ -206,8 +203,6 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
   /**
    * Creates a GfcDate with all zero values, blank string and invalid flag; this date can be altered
    * without effecting other instances.
-   *
-   * @return
    */
   public static GfcDate unknown() {
     return new GfcDate(0, 0, 0, 0, "", false);
@@ -216,8 +211,6 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
   /**
    * Sets the GfcDate's state as it goes from un-validated to validated. The state should never be
    * null, but it is not checked here.
-   *
-   * @param gfcState
    */
   protected void setGfcState(GfcDateState gfcState) {
     this.gfcState = gfcState;
@@ -236,8 +229,6 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
 
   /**
    * returns the flag indicating if this date is valid or not.
-   *
-   * @return
    */
   public boolean isValid() {
     return this.gfcState.isValid(this);
@@ -251,7 +242,7 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
   @Override
   public int hashCode() {
     return this.gfcState.getElapsedDays(this); // To change body of generated methods, choose Tools
-                                               // | Templates.
+    // | Templates.
   }
 
   /**
@@ -323,7 +314,7 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
    * elapsed days it equal to or between the other dates
    *
    * @param startDate - start of time period
-   * @param endDate - end of time period
+   * @param endDate   - end of time period
    * @return true if this date is equal to or between the start and end dates
    */
   public boolean containedWithin(GfcDate startDate, GfcDate endDate) {
@@ -414,7 +405,7 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
   /**
    * The date in milliseconds since 1970 (similar to Java System.currentTimeMillis()) based on the
    * elapsed days.<br />
-   *
+   * <p>
    * Update: 2015/05/01 - Tim Gallagher - added the GMT time zone adjustment in order to ensure that
    * the milliseconds returned by this method would match the milliseconds returned by
    * Date().getTime() which is time zone sensitive.
@@ -476,8 +467,6 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
 
   /**
    * gets the month associated with this date
-   *
-   * @return
    */
   public int getMonth() {
     return this.gfcState.getMonth(this);
@@ -496,15 +485,13 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
 
   /**
    * gets the year associated with this date
-   *
-   * @return
    */
   public int getYear() {
     return this.gfcState.getYear(this);
   }
 
   @Override
-  public GfcDate clone() throws CloneNotSupportedException {
+  public GfcDate clone() {
     return new GfcDate(getYear(), getMonth(), getDay(), getElapsedDays(), toString(), isValid());
   }
 
@@ -523,7 +510,7 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
     int day = 0;
     int elapsedDays = 0;
     int maxDayPerMonth;
-    int dayArray[];
+    int[] dayArray;
 
     if (strDate == null) {
       return new GfcDateValidated(year, month, day, elapsedDays, strDate, false);
@@ -684,7 +671,7 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
    * Creates a new GfcDate that is later than this GfcDate
    *
    * @param days - positive int (negative int will subtract days. Use minusDays() instead for
-   *        clarity)
+   *             clarity)
    * @return GfcDate implementation
    */
   public GfcDate addDays(int days) {
@@ -740,9 +727,6 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
 
     /**
      * Gets the day representing the day of the month
-     *
-     * @param gfcDate
-     * @return
      */
     int getDay(GfcDate gfcDate);
 
@@ -758,9 +742,6 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
 
     /**
      * Gets the month of the year
-     *
-     * @param gfcDate
-     * @return
      */
     int getMonth(GfcDate gfcDate);
 
@@ -776,9 +757,6 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
 
     /**
      * Gets the actual year, not an elapsed year.
-     *
-     * @param gfcDate
-     * @return
      */
     int getYear(GfcDate gfcDate);
 
@@ -795,23 +773,23 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
     /**
      * The year for this date
      */
-    private int year;
+    private final int year;
 
     /**
      * The month for this date - this is a 1 based value, unlike the java.util.Date which is a 0
      * based value.
      */
-    private int month;
+    private final int month;
 
     /**
      * The day of the month
      */
-    private int day;
+    private final int day;
 
     /**
      * the number of days since January 1, 1849.
      */
-    private int elapsedDays;
+    private final int elapsedDays;
 
     /**
      * Default string representation of the date as YYYYMMDD
@@ -821,7 +799,7 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
     /**
      * Flag for valid information within the date.
      */
-    private boolean valid;
+    private final boolean valid;
 
     public GfcDateValidated(int year, int month, int day, int elapsedDays, String strDate,
         boolean valid) {
@@ -835,9 +813,6 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
 
     /**
      * Returns a string for the date as YYYYMMDD, zero padded
-     *
-     * @param gfcDate
-     * @return
      */
     @Override
     public String toString(GfcDate gfcDate) {
@@ -901,11 +876,10 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
   /**
    * Date created as a String and elapsed days, month, day and year must be calculated when
    * requested.
-   *
    */
   class GfcDateStringInitialized implements GfcDateState {
 
-    private String strDate;
+    private final String strDate;
 
     public GfcDateStringInitialized(String strDate) {
       this.strDate = strDate;
@@ -1060,9 +1034,8 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
   /**
    * Date created with Elapsed days and the String, month, day and year must be calculated when
    * requested.
-   *
    */
-  class GfcDateMDYInitialized implements GfcDateState {
+  static class GfcDateMDYInitialized implements GfcDateState {
 
     private int month;
     private int day;
@@ -1079,10 +1052,6 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
     public String toString(GfcDate gfcDate) {
       if (this.strDate == null) {
         this.strDate = String.format("%04d%02d%02d", this.year, this.month, this.day);
-        //
-        // this.strDate = "" + this.year
-        // + (this.month < 10 ? "0" : "") + this.month
-        // + (this.day < 10 ? "0" : "") + this.day;
       }
       return this.strDate;
     }
@@ -1140,9 +1109,6 @@ public class GfcDate implements Serializable, Cloneable, Comparable {
 
     /**
      * validates based on the current month, day, year
-     *
-     * @param gfcDate
-     * @return
      */
     @Override
     public boolean isValid(GfcDate gfcDate) {

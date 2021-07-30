@@ -9,6 +9,7 @@ import java.util.Collections;
  * @author Tim Gallagher
  */
 public class FlagsEmpty implements IFlags {
+
   private static final long serialVersionUID = 1447243630328132872L;
 
   @Override
@@ -22,7 +23,8 @@ public class FlagsEmpty implements IFlags {
   }
 
   @Override
-  public void clear() {}
+  public void clear() {
+  }
 
   @Override
   public boolean isEmpty() {
@@ -30,12 +32,12 @@ public class FlagsEmpty implements IFlags {
   }
 
   @Override
-  public boolean isFlagSet(Class<? extends Enum> enumClass) {
+  public boolean isFlagSet(Class<? extends Enum<?>> enumClass) {
     return false;
   }
 
   @Override
-  public boolean isFlagTypeSet(Class interfaceClass) {
+  public boolean isFlagTypeSet(Class<?> interfaceClass) {
     return false;
   }
 
@@ -55,7 +57,7 @@ public class FlagsEmpty implements IFlags {
   }
 
   @Override
-  public Collection<GfcEnum> getFlags(Class interfaceClass) {
+  public Collection<GfcEnum> getFlags(Class<?> interfaceClass) {
     return Collections.emptyList();
   }
 

@@ -162,7 +162,8 @@ public class TestDefaultGfcDate {
       if (date.getMonth() != jdate.getMonth() + 1 || date.getYear() != jdate.getYear() + 1900
           || date.getDay() != jdate.getDate()) {
         Assert.fail(
-            "Creating a java.util.Date from a DefaultGfcDate.getTime() does not produce the same month, day, year.");
+            "Creating a java.util.Date from a DefaultGfcDate.getTime() does not produce the same "
+                + "month, day, year.");
       }
     }
 
@@ -189,7 +190,8 @@ public class TestDefaultGfcDate {
       jdate = new Date(dateTime);
       if (!date.equals(jdate)) {
         Assert.fail(
-            "Creating a java.util.Date from a DefaultGfcDate.getTime() does not produce the same month, day, year.");
+            "Creating a java.util.Date from a DefaultGfcDate.getTime() does not produce the same "
+                + "month, day, year.");
       }
     }
 
@@ -218,13 +220,13 @@ public class TestDefaultGfcDate {
       date2 = new GfcDate(date.getElapsedDays() + addDays);
       if (!expStr.equals(date2.toString())) {
         Assert.fail("Creating a GfcDate from a ElapsedDays: starting date: "
-            + date.toString()
+            + date
             + " plus "
             + addDays
             + " did not results in "
             + expStr
             + " but instead = "
-            + date2.toString());
+            + date2);
       }
 
       expStr = "18491231";
@@ -232,13 +234,13 @@ public class TestDefaultGfcDate {
       date2 = new GfcDate(date.getElapsedDays() + addDays);
       if (!expStr.equals(date2.toString())) {
         Assert.fail("Creating a GfcDate from a ElapsedDays: starting date: "
-            + date.toString()
+            + date
             + " plus "
             + addDays
             + " did not results in "
             + expStr
             + " but instead = "
-            + date2.toString());
+            + date2);
       }
 
       date = new GfcDate(1900, 1, 1);
@@ -247,13 +249,13 @@ public class TestDefaultGfcDate {
       date2 = new GfcDate(date.getElapsedDays() + addDays);
       if (!expStr.equals(date2.toString())) {
         Assert.fail("Creating a GfcDate from a ElapsedDays: starting date: "
-            + date.toString()
+            + date
             + " plus "
             + addDays
             + " did not result in "
             + expStr
             + " but instead = "
-            + date2.toString());
+            + date2);
       }
 
       date = new GfcDate(2000, 1, 1);
@@ -262,13 +264,13 @@ public class TestDefaultGfcDate {
       date2 = new GfcDate(date.getElapsedDays() + addDays);
       if (!expStr.equals(date2.toString())) {
         Assert.fail("Creating a GfcDate from a ElapsedDays: starting date: "
-            + date.toString()
+            + date
             + " plus "
             + addDays
             + " did not results in "
             + expStr
             + " but instead = "
-            + date2.toString());
+            + date2);
       }
     }
 
@@ -300,42 +302,48 @@ public class TestDefaultGfcDate {
     oneDayLater = date.addDays(1);
     if (date.toString().equals(oneDayLater.toString())) {
       Assert.fail(
-          "End of Year roll over - String of GfcDate is the same as the String GfcDate.addDary(1) but should be one day later");
+          "End of Year roll over - String of GfcDate is the same as the String GfcDate.addDary(1)"
+              + " but should be one day later");
     }
 
     date = new GfcDate(2015, 4, 30);
     oneDayLater = date.addDays(1);
     if (date.toString().equals(oneDayLater.toString())) {
       Assert.fail(
-          "Mid Year roll over - String of GfcDate is the same as the String GfcDate.addDary(1) but should be one day later");
+          "Mid Year roll over - String of GfcDate is the same as the String GfcDate.addDary(1) "
+              + "but should be one day later");
     }
 
     date = new GfcDate(60749);
     oneDayLater = new GfcDate(60750); // similar date.addDays(1);
     if (date.toString().equals(oneDayLater.toString())) {
       Assert.fail(
-          "Mid Year roll over starting Today - String of GfcDate is the same as the String GfcDate.addDary(1) but should be one day later");
+          "Mid Year roll over starting Today - String of GfcDate is the same as the String "
+              + "GfcDate.addDary(1) but should be one day later");
     }
 
     date = new GfcDate(new Date(1969 - 1900, 0, 1));
     oneDayLater = date.addDays(1);
     if (date.toString().equals(oneDayLater.toString())) {
       Assert.fail(
-          "Mid Year roll over starting Today - String of GfcDate is the same as the String GfcDate.addDary(1) but should be one day later");
+          "Mid Year roll over starting Today - String of GfcDate is the same as the String "
+              + "GfcDate.addDary(1) but should be one day later");
     }
 
     date = new GfcDate(new Date(1970 - 1900, 0, 1));
     oneDayLater = date.addDays(1);
     if (date.toString().equals(oneDayLater.toString())) {
       Assert.fail(
-          "Mid Year roll over starting Today - String of GfcDate is the same as the String GfcDate.addDary(1) but should be one day later");
+          "Mid Year roll over starting Today - String of GfcDate is the same as the String "
+              + "GfcDate.addDary(1) but should be one day later");
     }
 
     date = new GfcDate();
     oneDayLater = date.addDays(1);
     if (date.toString().equals(oneDayLater.toString())) {
       Assert.fail(
-          "Today plus 1 - String of GfcDate is the same as the String GfcDate.addDary(1) but should be one day later");
+          "Today plus 1 - String of GfcDate is the same as the String GfcDate.addDary(1) but "
+              + "should be one day later");
     }
 
   }
@@ -353,13 +361,13 @@ public class TestDefaultGfcDate {
     boolean monthEqual = gd20121231_bad.getMonth() == gd20121231.getMonth();
     boolean dayEqual = gd20121231_bad.getDay() == gd20121231.getDay();
     Assert.assertEquals("Year/Month/Day not matching. Orig="
-        + Integer.toString(gd20121231.getYear())
-        + Integer.toString(gd20121231.getMonth())
-        + Integer.toString(gd20121231.getDay())
+        + gd20121231.getYear()
+        + gd20121231.getMonth()
+        + gd20121231.getDay()
         + " and Derived="
-        + Integer.toString(gd20121231_bad.getYear())
-        + Integer.toString(gd20121231_bad.getMonth())
-        + Integer.toString(gd20121231_bad.getDay()), true, yearEqual && monthEqual && dayEqual);
+        + gd20121231_bad.getYear()
+        + gd20121231_bad.getMonth()
+        + gd20121231_bad.getDay(), true, yearEqual && monthEqual && dayEqual);
   }
 
   @Test
@@ -383,13 +391,13 @@ public class TestDefaultGfcDate {
       boolean monthEqual = dateFromElapsed.getMonth() == dateFromMDY.getMonth();
       boolean dayEqual = dateFromElapsed.getDay() == dateFromMDY.getDay();
       Assert.assertEquals("Year/Month/Day not matching. Orig="
-          + Integer.toString(dateFromMDY.getYear())
-          + Integer.toString(dateFromMDY.getMonth())
-          + Integer.toString(dateFromMDY.getDay())
+          + dateFromMDY.getYear()
+          + dateFromMDY.getMonth()
+          + dateFromMDY.getDay()
           + " and Derived="
-          + Integer.toString(dateFromElapsed.getYear())
-          + Integer.toString(dateFromElapsed.getMonth())
-          + Integer.toString(dateFromElapsed.getDay()), true, yearEqual && monthEqual && dayEqual);
+          + dateFromElapsed.getYear()
+          + dateFromElapsed.getMonth()
+          + dateFromElapsed.getDay(), true, yearEqual && monthEqual && dayEqual);
     }
   }
 
@@ -398,7 +406,7 @@ public class TestDefaultGfcDate {
 
     for (int i = 1, year = 1849; i < 50; i++, year++) {
       // set the date to be Dec 31 of the year
-      GfcDate dateFromMDY = new GfcDate(Integer.toString(year)
+      GfcDate dateFromMDY = new GfcDate(year
           + "1231");
       GfcDate dateFromElapsed;
       dateFromElapsed = new GfcDate(dateFromMDY.getElapsedDays());
@@ -497,7 +505,7 @@ public class TestDefaultGfcDate {
 
 
   @Test
-  public void testBadDay() throws Exception {
+  public void testBadDay() {
     Assert.assertEquals(false, new GfcDate(2015, 12, 32).isValid());
     Assert.assertEquals(false, new GfcDate("20151232").isValid());
     Assert.assertEquals(false, new GfcDate(2100, 2, 29).isValid());

@@ -7,24 +7,23 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- *
- * @author a2jagzz
+ * @author Jason Flores
  * @deprecated
  */
 @Deprecated
 public interface IPatient extends Serializable {
 
-  public String getPatientId();
+  String getPatientId();
 
-  public void setPatientId(String patientId);
+  void setPatientId(String patientId);
 
-  public void setBirthDate(GfcDate birthDate);
+  void setBirthDate(GfcDate birthDate);
 
-  public GfcDate getBirthDate();
+  GfcDate getBirthDate();
 
-  public void addClaim(Claim claim);
+  void addClaim(Claim claim);
 
-  public void setClaims(List<Claim> claims);
+  void setClaims(List<Claim> claims);
 
-  public List<Claim> getClaims();
+  List<Claim> getClaims();
 }

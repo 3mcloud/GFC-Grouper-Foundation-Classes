@@ -1,100 +1,100 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mmm.his.cer.gfc.gfc-api</groupId>
-	<artifactId>gfc-base-api</artifactId>
-    <version>3.5.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+  <groupId>com.mmm.his.cer.gfc.gfc-api</groupId>
+  <artifactId>gfc-base-api</artifactId>
+  <version>3.5.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
-	<name>Grouper Foundation Classes - Base API</name>
-	<description>The minimal needed API to implement a GFC component with</description>
+  <name>Grouper Foundation Classes - Base API</name>
+  <description>The minimal needed API to implement a GFC component with</description>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <compilerPluginVersion>3.8.1</compilerPluginVersion>
-		<java_version>1.8</java_version>
-		<junitVersion>4.13.1</junitVersion>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <compilerPluginVersion>3.8.1</compilerPluginVersion>
+    <java_version>1.8</java_version>
+    <junitVersion>4.13.1</junitVersion>
 
-      <!-- Checkstyle v8.2 is the lowest version that works with maven-checkstyle-plugin 
-        v3.1.0 and v3.1.1 -->
-      <checkstyleVersion>7.2</checkstyleVersion>
-	</properties>
-
-
-	<dependencies>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junitVersion}</version>
-			<scope>test</scope>
-		</dependency>
-
-	</dependencies>
+    <!-- Checkstyle v8.2 is the lowest version that works with maven-checkstyle-plugin
+      v3.1.0 and v3.1.1 -->
+    <checkstyleVersion>7.2</checkstyleVersion>
+  </properties>
 
 
-	<build>
+  <dependencies>
 
-		<plugins>
-            <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${compilerPluginVersion}</version>
-				<configuration>
-					<source>${java_version}</source>
-					<target>${java_version}</target>
-				</configuration>
-			</plugin>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junitVersion}</version>
+      <scope>test</scope>
+    </dependency>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M5</version>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.2.0</version>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>3.2.1</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>3.0.0-M1</version>
-			</plugin>
-
-		</plugins>
-
-	</build>
+  </dependencies>
 
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<url>${nexusSnapshots}</url>
-		</snapshotRepository>
-		<repository>
-			<id>releases</id>
-			<url>${nexusReleases}</url>
-		</repository>
-	</distributionManagement>
+  <build>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compilerPluginVersion}</version>
+        <configuration>
+          <source>${java_version}</source>
+          <target>${java_version}</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.0</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.2.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>3.0.0-M1</version>
+      </plugin>
+
+    </plugins>
+
+  </build>
+
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>${nexusSnapshots}</url>
+    </snapshotRepository>
+    <repository>
+      <id>releases</id>
+      <url>${nexusReleases}</url>
+    </repository>
+  </distributionManagement>
 
 </project>

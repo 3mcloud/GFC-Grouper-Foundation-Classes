@@ -7,15 +7,17 @@ import com.mmm.his.cer.foundation.utility.GfcDate;
  * start date is less than or equal to the end date.
  *
  * @author Tim Gallagher - 3M HIS C&amp;ER
- * @author a2jagzz
+ * @author Jason Flores
  */
 public class DatePeriod implements IDatePeriod {
+
   private static final long serialVersionUID = -2779687289416687176L;
 
   private GfcDate startDate;
   private GfcDate endDate;
 
-  public DatePeriod() {}
+  public DatePeriod() {
+  }
 
   public DatePeriod(GfcDate startDate, GfcDate endDate) {
     this.startDate = startDate;
@@ -68,7 +70,7 @@ public class DatePeriod implements IDatePeriod {
    * end date can be null.
    *
    * @return true if both start/end are null. True is start date is valid but there is no endDate.
-   *         True if start date is valid and before the end date. False otherwise.
+   *     True if start date is valid and before the end date. False otherwise.
    */
   public boolean validate() {
     if (startDate == null) {
@@ -77,7 +79,7 @@ public class DatePeriod implements IDatePeriod {
        */
       return endDate == null;
     } else {
-      return endDate == null ? true : startDate.compareTo(endDate) <= 0;
+      return endDate == null || startDate.compareTo(endDate) <= 0;
     }
   }
 
