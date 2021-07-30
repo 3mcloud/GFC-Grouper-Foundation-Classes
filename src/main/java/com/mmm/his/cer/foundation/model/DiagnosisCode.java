@@ -37,7 +37,7 @@ public class DiagnosisCode extends Code implements Serializable {
    * sets the diagnosis code ensuring non-null value, and with POA as supplied
    *
    * @param value the code value
-   * @param poa the present on admission indicator
+   * @param poa   the present on admission indicator
    */
   public DiagnosisCode(String value, GfcPoa poa) {
     super(value);
@@ -49,10 +49,13 @@ public class DiagnosisCode extends Code implements Serializable {
    * parsed, else a POA value of <code>GfcPoa.E</code>
    *
    * @param value the code value
-   * @param poa the present on admission indicator as a <code>String</code>. This is expected to be
-   *        a single char String such as <code>"Y"</code> or <code>"N"</code>. If an unsupported
-   *        value is passed in (see {@link GfcPoa} for acceptable char values), the field will be
-   *        set to <code>null</code>.
+   * @param poa   the present on admission indicator as a <code>String</code>. This is expected to
+   *              be
+   *              a single char String such as <code>"Y"</code> or <code>"N"</code>. If an
+   *              unsupported
+   *              value is passed in (see {@link GfcPoa} for acceptable char values), the field will
+   *              be
+   *              set to <code>null</code>.
    * @deprecated please favor <code>public DiagnosisCode(String value, GfcPoa poa)</code>
    */
   @Deprecated
@@ -71,8 +74,6 @@ public class DiagnosisCode extends Code implements Serializable {
   }
 
   /**
-   *
-   *
    * @return the present on admission flag as a <code>String</code>.
    * @deprecated please favor <code>public void getPresentOnAdmissionEnum() </code>
    */
@@ -92,9 +93,11 @@ public class DiagnosisCode extends Code implements Serializable {
 
   /**
    * @param poa the present on admission flag as a <code>String</code>. This is expected to be a
-   *        single char String such as <code>"Y"</code> or <code>"N"</code>. If an unsupported value
-   *        is passed in (see {@link GfcPoa} for acceptable char values), the field will be set to
-   *        <code>GfcPoa.E</code>.
+   *            single char String such as <code>"Y"</code> or <code>"N"</code>. If an unsupported
+   *            value
+   *            is passed in (see {@link GfcPoa} for acceptable char values), the field will be set
+   *            to
+   *            <code>GfcPoa.E</code>.
    * @deprecated please favor <code>public void setPresentOnAdmission(GfcPoa poa) </code>
    */
   @Deprecated

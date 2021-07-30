@@ -7,34 +7,18 @@ package com.mmm.his.cer.foundation.utility;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.text.ParseException;
 import java.util.Date;
 
 /**
- *
- * @author A0DULZZ
+ * @author Timothy Gallagher
  */
 public class SimpleGfcDateFormatTest {
 
-  public SimpleGfcDateFormatTest() {}
-
-  @BeforeClass
-  public static void setUpClass() {}
-
-  @AfterClass
-  public static void tearDownClass() {}
-
-  @Before
-  public void setUp() {}
-
-  @After
-  public void tearDown() {}
+  public SimpleGfcDateFormatTest() {
+  }
 
   @Test
   public void testYYYYMMDD() {

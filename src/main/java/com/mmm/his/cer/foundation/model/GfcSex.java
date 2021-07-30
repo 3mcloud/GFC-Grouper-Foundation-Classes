@@ -5,7 +5,6 @@ package com.mmm.his.cer.foundation.model;
  * Provides standard Sex values with Unknown = 0, Male = 1 and Female = 2
  *
  * @author Tim Gallagher - 3M HIS CER
- *
  */
 public enum GfcSex implements GfcEnum {
 
@@ -19,10 +18,10 @@ public enum GfcSex implements GfcEnum {
       "Female",
       'F');
 
-  private String name;
-  private char charValue;
+  private final String name;
+  private final char charValue;
 
-  private GfcSex(String name, char charValue) {
+  GfcSex(String name, char charValue) {
     this.name = name;
     this.charValue = charValue;
   }

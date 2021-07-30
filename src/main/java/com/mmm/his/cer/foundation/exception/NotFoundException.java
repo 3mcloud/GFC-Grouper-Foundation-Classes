@@ -7,6 +7,7 @@ package com.mmm.his.cer.foundation.exception;
  */
 @Deprecated
 public class NotFoundException extends IllegalArgumentException {
+
   private static final long serialVersionUID = 1L;
 
   /**
@@ -22,14 +23,15 @@ public class NotFoundException extends IllegalArgumentException {
   /**
    * default - not very useful
    */
-  public NotFoundException() {}
+  public NotFoundException() {
+  }
 
   /**
    * This creates an exception with a source and value, and creating a default message of:
    * "Searching " + source + " for value " + value + " but not found."
    *
    * @param source - should not be null
-   * @param value - should not be null
+   * @param value  - should not be null
    */
   public NotFoundException(Object source, Object value) {
     this(source, value, "Searching "

@@ -25,9 +25,7 @@ import com.mmm.his.cer.foundation.utility.ComponentClassUtil;
  * To customize the used package path under which a class with the given name/prefix is expected,
  * implement {@link ComponentPackage} along with this {@link ComponentVersion} interface.
  *
- *
  * @author Thomas Naeff
- *
  */
 public interface ComponentVersion {
 
@@ -39,11 +37,10 @@ public interface ComponentVersion {
    * package names separated by {@link ComponentClassUtil#PACKAGE_SEPARATOR}.<br>
    * <br>
    *
-   * @see ComponentClassUtil
-   *
    * @return A valid Java class package name or partial path
+   * @see ComponentClassUtil
    */
-  public String getPackageValue();
+  String getPackageValue();
 
 
 }

@@ -10,7 +10,6 @@ import com.mmm.his.cer.foundation.exception.FoundationRuntimeException;
  * Some component constants and utility methods.
  *
  * @author Thomas Naeff
- *
  */
 public final class ComponentClassUtil {
 
@@ -44,13 +43,7 @@ public final class ComponentClassUtil {
    * constructs the full path by appending {@link ComponentVersion#getPackageValue()}.<br>
    * This package path separates package names with {@link #PACKAGE_SEPARATOR}.
    */
-  public static final ComponentPackage DEFAULT_BASE_PACKAGE_CONFIG = new ComponentPackage() {
-
-    @Override
-    public String getBasePackagePath() {
-      return "com.mmm.his.cer";
-    }
-  };
+  public static final ComponentPackage DEFAULT_BASE_PACKAGE_CONFIG = () -> "com.mmm.his.cer";
 
   /**
    * The postfix for a {@link Processable} implementation. The prefix is defined in
@@ -66,13 +59,13 @@ public final class ComponentClassUtil {
 
   /**
    * Constructs the full package path for the {@link Processable} implementation. The returned path
-   * should "point" to the class with the name of {@link #getComponentClassName(ComponentName)}.
+   * should "point" to the class with the name of .
    *
-   * @param componentName The component name object
+   * @param componentName    The component name object
    * @param componentVersion The component version object
    * @return The full package path, with the package name forced to all lowercase
    */
-  public static final String getComponentClassPackagePath(ComponentName componentName,
+  public static String getComponentClassPackagePath(ComponentName componentName,
       ComponentVersion componentVersion) {
     ComponentPackage basePackageConfig = getBasePackageConfig(componentName, componentVersion);
     String basePackage = basePackageConfig.getBasePackagePath();
@@ -87,12 +80,12 @@ public final class ComponentClassUtil {
 
   /**
    * Constructs the full package path for the {@link ComponentVersion} implementation. The returned
-   * path should "point" to the class with the name of {@link #getVersionClassName(ComponentName)}.
+   * path should "point" to the class with the name of .
    *
    * @param componentName The component name object
    * @return The full package path, with the package name forced to all lowercase
    */
-  public static final String getVersionClassPackagePath(ComponentName componentName) {
+  public static String getVersionClassPackagePath(ComponentName componentName) {
     ComponentPackage basePackageConfig = getBasePackageConfig(componentName, null);
     String basePackage = basePackageConfig.getBasePackagePath();
     if (!basePackage.endsWith(PACKAGE_SEPARATOR)) {
@@ -106,11 +99,11 @@ public final class ComponentClassUtil {
   /**
    * Builds the fully qualified class path of a {@link Processable} implementation.
    *
-   * @param componentName The component name object
+   * @param componentName    The component name object
    * @param componentVersion The component version object
    * @return The fully qualified class path
    */
-  public static final String getFullyQualifiedComponentClassPath(ComponentName componentName,
+  public static String getFullyQualifiedComponentClassPath(ComponentName componentName,
       ComponentVersion componentVersion) {
     return ComponentClassUtil.getComponentClassPackagePath(componentName, componentVersion)
         + ComponentClassUtil.PACKAGE_SEPARATOR
@@ -123,8 +116,8 @@ public final class ComponentClassUtil {
    * @param componentName The component name object
    * @return The fully qualified class path
    */
-  public static final String
-      getFullyQualifiedComponentVersionClassPath(ComponentName componentName) {
+  public static String
+  getFullyQualifiedComponentVersionClassPath(ComponentName componentName) {
     return ComponentClassUtil.getVersionClassPackagePath(componentName)
         + ComponentClassUtil.PACKAGE_SEPARATOR
         + ComponentClassUtil.getClassName(componentName, VERSION_CLASS_POSTFIX);
@@ -137,10 +130,9 @@ public final class ComponentClassUtil {
    * your own.
    *
    * @param componentName The component name object
-   * @param The postfix, appended to the name
    * @return The class name
    */
-  public static final String getClassName(ComponentName componentName, String postfix) {
+  public static String getClassName(ComponentName componentName, String postfix) {
     String format = COMPONENT_NAME_LOCATION
         + "%s";
     return String.format(format, componentName.getName(), postfix);
@@ -152,11 +144,11 @@ public final class ComponentClassUtil {
    * otherwise returns the default {@link #DEFAULT_BASE_PACKAGE_CONFIG}. If both parameters
    * implement {@link ComponentPackage}, it checks that they are implemented the same.
    *
-   * @param componentName The component name object
+   * @param componentName    The component name object
    * @param componentVersion The component version object
    * @return A {@link ComponentPackage}
    */
-  private static final ComponentPackage getBasePackageConfig(ComponentName componentName,
+  private static ComponentPackage getBasePackageConfig(ComponentName componentName,
       ComponentVersion componentVersion) {
 
     ComponentPackage fromName = null;

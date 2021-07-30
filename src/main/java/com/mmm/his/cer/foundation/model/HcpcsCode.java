@@ -5,10 +5,11 @@ import com.mmm.his.cer.foundation.utility.GfcDate;
 /**
  * HCPCS Code
  *
- * @author A2JAGZZ
+ * @author Jason Flores
  * @author Tim Gallagher
  */
 public class HcpcsCode extends ProcedureCode implements IDescribable {
+
   private static final long serialVersionUID = 9208621402541194385L;
 
 
@@ -48,13 +49,12 @@ public class HcpcsCode extends ProcedureCode implements IDescribable {
   /**
    * creates a blank code with unknown/invalid date
    */
-  public HcpcsCode() {}
+  public HcpcsCode() {
+  }
 
   /**
    * creates code with supplied value, ensuring non-null, with unknown date, and all other values
    * null or 0
-   *
-   * @param value
    */
   public HcpcsCode(String value) {
     super(value);
@@ -62,13 +62,6 @@ public class HcpcsCode extends ProcedureCode implements IDescribable {
 
   /**
    * Creates code with supplied values, ensuring non-null code value
-   *
-   * @param value
-   * @param mods
-   * @param revenueCode
-   * @param units
-   * @param serviceDate
-   * @param charge
    */
   public HcpcsCode(String value, String[] mods, int revenueCode, int units, GfcDate serviceDate,
       double charge) {
@@ -81,8 +74,6 @@ public class HcpcsCode extends ProcedureCode implements IDescribable {
 
   /**
    * gets the charge
-   *
-   * @return
    */
   public double getCharge() {
     return charge;
@@ -109,8 +100,6 @@ public class HcpcsCode extends ProcedureCode implements IDescribable {
 
   /**
    * gets the revenue code
-   *
-   * @return
    */
   public int getRevenueCode() {
     return revenueCode;
@@ -140,8 +129,6 @@ public class HcpcsCode extends ProcedureCode implements IDescribable {
 
   /**
    * gets the units
-   *
-   * @return
    */
   public int getUnits() {
     return units;
@@ -149,8 +136,6 @@ public class HcpcsCode extends ProcedureCode implements IDescribable {
 
   /**
    * sets the charge
-   *
-   * @param charge
    */
   public void setCharge(double charge) {
     this.charge = charge;
@@ -158,8 +143,6 @@ public class HcpcsCode extends ProcedureCode implements IDescribable {
 
   /**
    * sets the long description
-   *
-   * @param desc
    */
   @Override
   public void setLongDescription(String desc) {
@@ -168,8 +151,6 @@ public class HcpcsCode extends ProcedureCode implements IDescribable {
 
   /**
    * sets the mods
-   *
-   * @param mods
    */
   public void setMods(String[] mods) {
     this.mods = mods;
@@ -177,8 +158,6 @@ public class HcpcsCode extends ProcedureCode implements IDescribable {
 
   /**
    * sets the revenue code
-   *
-   * @param revenueCode
    */
   public void setRevenueCode(int revenueCode) {
     this.revenueCode = revenueCode;
@@ -186,8 +165,6 @@ public class HcpcsCode extends ProcedureCode implements IDescribable {
 
   /**
    * sets the short description
-   *
-   * @param desc
    */
   @Override
   public void setShortDescription(String desc) {
@@ -196,8 +173,6 @@ public class HcpcsCode extends ProcedureCode implements IDescribable {
 
   /**
    * sets the units
-   *
-   * @param units
    */
   public void setUnits(int units) {
     this.units = units;

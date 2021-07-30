@@ -17,7 +17,6 @@ import com.mmm.his.cer.foundation.utility.ComponentClassUtil;
  * and other classes for dynamic loading. See {@link ComponentClassUtil} for more information.<br>
  *
  * @author Thomas Naeff
- *
  */
 public interface ComponentPackage {
 
@@ -27,8 +26,8 @@ public interface ComponentPackage {
    * will be appended.
    *
    * @return The base package path, with our without {@link ComponentClassUtil#PACKAGE_SEPARATOR} at
-   *         the end.
+   *     the end.
    */
-  public String getBasePackagePath();
+  String getBasePackagePath();
 
 }

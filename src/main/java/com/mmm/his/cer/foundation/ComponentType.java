@@ -6,14 +6,12 @@ package com.mmm.his.cer.foundation;
  * the classpath will actually be available.<br />
  * <br />
  *
+ * @author Jason Flores
+ * @author Timothy Gallagher
  * @deprecated Use a component specific {@link ComponentName} implementation instead. This
- *             enumeration will be updated until it gets removed in a future release. It is still
- *             necessary to use this type until the domain component factory is updated to use
- *             {@link ComponentName}.
- *
- * @author a2jagzz
- * @author a0dulzz
- * @author a3bygzz
+ *     enumeration will be updated until it gets removed in a future release. It is still
+ *     necessary to use this type until the domain component factory is updated to use
+ *     {@link ComponentName}.
  */
 @Deprecated
 public enum ComponentType implements ComponentName {

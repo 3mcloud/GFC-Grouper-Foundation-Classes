@@ -38,10 +38,10 @@ public enum GfcPoa implements GfcEnum {
       (char) 0,
       "Invalid");
 
-  private char charVal;
-  private String desc;
+  private final char charVal;
+  private final String desc;
 
-  private GfcPoa(char charVal, String desc) {
+  GfcPoa(char charVal, String desc) {
     this.charVal = charVal;
     this.desc = desc;
   }
@@ -62,9 +62,9 @@ public enum GfcPoa implements GfcEnum {
   }
 
   /**
-   * @param charVal the <code>char</code> value to attempt to parse into a known enum value.
+   * @param charVal      the <code>char</code> value to attempt to parse into a known enum value.
    * @param defaultValue the default enum value to use <strong>if, and only if, the input
-   *        <code>char</code> could not be parsed</strong>.
+   *                     <code>char</code> could not be parsed</strong>.
    * @return the POA flag as an enum value if it could be parsed, else <code>defaultValue</code>
    */
   public static GfcPoa fromChar(char charVal, GfcPoa defaultValue) {
@@ -81,12 +81,13 @@ public enum GfcPoa implements GfcEnum {
 
   /**
    * @param charVal the <code>char</code> value to attempt to parse into a known enum value.
-   *        <code>E</code> will be returned for any <code>char</code> value that could not be
-   *        parsed.
+   *                <code>E</code> will be returned for any <code>char</code> value that could not
+   *                be
+   *                parsed.
    * @return the POA flag as an enum value, else <code>GfcPoa.E</code> if the <code>char</code>
-   *         value could not be parsed.
+   *     value could not be parsed.
    * @deprecated please favor <code>public static GfcPoa fromChar(char charVal, GfcPoa
-   * defaultValue)</code>.
+   *     defaultValue)</code>.
    */
   @Deprecated
   public static GfcPoa fromChar(char charVal) {

@@ -6,13 +6,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
  * @author Tim Gallagher
  */
+@SuppressWarnings("unchecked")
 public class Flags implements IFlags {
+
   private static final long serialVersionUID = -7112681615816415386L;
 
-  private Map<Class<?>, GfcEnum> flagMap;
+  private final Map<Class<?>, GfcEnum> flagMap;
 
   /**
    * empty, no-op flags mechanism
@@ -20,7 +21,7 @@ public class Flags implements IFlags {
   public static final IFlags NULL_FLAGS = new FlagsEmpty();
 
   public Flags() {
-    this.flagMap = new HashMap<Class<?>, GfcEnum>();
+    this.flagMap = new HashMap<>();
   }
 
   @Override
@@ -29,12 +30,14 @@ public class Flags implements IFlags {
     Class<? extends GfcEnum> enumClass;
 
     enumClass = enumValue.getClass();
+    //noinspection unchecked
     oldEnum = (T) this.flagMap.get(enumClass);
     this.flagMap.put(enumClass, enumValue);
 
     return oldEnum;
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public <T extends GfcEnum> T unsetFlag(Class<T> enumClass) {
     return (T) this.flagMap.remove(enumClass);
@@ -52,13 +55,13 @@ public class Flags implements IFlags {
   }
 
   @Override
-  public boolean isFlagSet(Class<? extends Enum> enumClass) {
+  public boolean isFlagSet(Class<? extends Enum<?>> enumClass) {
     return this.flagMap.containsKey(enumClass);
   }
 
   @Override
-  public boolean isFlagTypeSet(Class interfaceClass) {
-    for (Class clazz : this.flagMap.keySet()) {
+  public boolean isFlagTypeSet(Class<?> interfaceClass) {
+    for (Class<?> clazz : this.flagMap.keySet()) {
       if (clazz.isInstance(interfaceClass)) {
         return true;
       }
@@ -82,10 +85,10 @@ public class Flags implements IFlags {
   }
 
   @Override
-  public Collection<GfcEnum> getFlags(Class interfaceClass) {
-    ArrayList<GfcEnum> list = new ArrayList<GfcEnum>();
+  public Collection<GfcEnum> getFlags(Class<?> interfaceClass) {
+    ArrayList<GfcEnum> list = new ArrayList<>();
 
-    for (Class clazz : this.flagMap.keySet()) {
+    for (Class<?> clazz : this.flagMap.keySet()) {
       if (interfaceClass.isAssignableFrom(clazz)) {
         list.add(this.flagMap.get(clazz));
       }

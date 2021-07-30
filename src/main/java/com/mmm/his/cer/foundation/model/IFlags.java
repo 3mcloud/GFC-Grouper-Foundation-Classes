@@ -20,18 +20,16 @@ public interface IFlags extends Serializable {
    * so if a current enum from the same class it present it will be replace, but also returned from
    * this method
    *
-   * @param enumValue
    * @return null if this is the first enum value for the specific enum class, or non-null enum of
-   *         the previously set value if there is an existing value that is replaced by this method
+   *     the previously set value if there is an existing value that is replaced by this method
    */
   <T extends GfcEnum> T setFlag(T enumValue);
 
   /**
    * removes an enum class
    *
-   * @param enumClass
    * @return null if this specific enum class is not present, or non-null enum if there is an
-   *         existing value
+   *     existing value
    */
   <T extends GfcEnum> T unsetFlag(Class<T> enumClass);
 
@@ -50,23 +48,20 @@ public interface IFlags extends Serializable {
   /**
    * determines if an enum class is set within the flag list
    *
-   * @param enumClass
    * @return true if any value of a specific enum class is found
    */
-  boolean isFlagSet(Class<? extends Enum> enumClass);
+  boolean isFlagSet(Class<? extends Enum<?>> enumClass);
 
   /**
    * determines if an interface class is set within the flag list
    *
-   * @param interfaceClass
    * @return true if any value of a specific enum class is found
    */
-  boolean isFlagTypeSet(Class interfaceClass);
+  boolean isFlagTypeSet(Class<?> interfaceClass);
 
   /**
    * determines if a specific enum value is present
    *
-   * @param enumValue
    * @return true if the value is found
    */
   boolean isFlagValueSet(GfcEnum enumValue);
@@ -74,7 +69,6 @@ public interface IFlags extends Serializable {
   /**
    * gets the current value of an enum class if set.
    *
-   * @param enumClass
    * @return non-null if the enum class is found, otherwise null
    */
   <T extends GfcEnum> T getFlag(Class<T> enumClass);
@@ -89,10 +83,9 @@ public interface IFlags extends Serializable {
   /**
    * gets a list, in random order, of the current flags that implement the specific interface
    *
-   * @param interfaceClass
    * @return non-null list, but may be empty
    */
-  Collection<GfcEnum> getFlags(Class interfaceClass);
+  Collection<GfcEnum> getFlags(Class<?> interfaceClass);
 
   /**
    * gets the size of the flag set

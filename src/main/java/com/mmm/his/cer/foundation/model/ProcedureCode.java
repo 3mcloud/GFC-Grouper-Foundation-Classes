@@ -8,6 +8,7 @@ import com.mmm.his.cer.foundation.utility.GfcDate;
  * @author Tim Gallagher
  */
 public class ProcedureCode extends Code {
+
   private static final long serialVersionUID = -67025976451453528L;
 
 
@@ -21,12 +22,11 @@ public class ProcedureCode extends Code {
    * Creates blank code with an "unknown/invalid" GfcDate. The date can be reset by adjusting its
    * day, month and year values
    */
-  public ProcedureCode() {}
+  public ProcedureCode() {
+  }
 
   /**
    * Creates with code value, ensuring a non-null value with an "unknown" GfcDate
-   *
-   * @param value
    */
   public ProcedureCode(String value) {
     super(value);
@@ -34,9 +34,6 @@ public class ProcedureCode extends Code {
 
   /**
    * Creates with code value, ensuring a non-null value with the supplied date
-   *
-   * @param codeValue
-   * @param serviceDate
    */
   public ProcedureCode(String codeValue, GfcDate serviceDate) {
     super(codeValue);
@@ -45,8 +42,6 @@ public class ProcedureCode extends Code {
 
   /**
    * Sets the date; if the code is null, sets it to "unknown"
-   *
-   * @param date
    */
   public void setDate(GfcDate date) {
     this.date = date;
@@ -56,7 +51,7 @@ public class ProcedureCode extends Code {
    * gets the date
    *
    * @return this is guaranteed to be non-null, even if the date was set to null through the
-   *         setDate(), directly through extends or other method
+   *     setDate(), directly through extends or other method
    */
   public GfcDate getDate() {
     if (this.date == null) {

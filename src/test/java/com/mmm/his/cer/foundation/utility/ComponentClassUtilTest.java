@@ -13,34 +13,19 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 /**
- *
- *
  * @author Thomas Naeff
- *
  */
 public class ComponentClassUtilTest {
 
   @Rule
-  public ExpectedException thrown = ExpectedException.none();
+  public final ExpectedException thrown = ExpectedException.none();
 
-  private static final ComponentName componentName = new ComponentName() {
-
-    @Override
-    public String getName() {
-      return "Test";
-    }
-  };
+  private static final ComponentName componentName = () -> "Test";
 
   private static final ComponentName componentNameWithCustomPackage =
       new ComponentNameWithCustomPackage();
 
-  private static final ComponentVersion componentVersion = new ComponentVersion() {
-
-    @Override
-    public String getPackageValue() {
-      return "1_2_0";
-    }
-  };
+  private static final ComponentVersion componentVersion = () -> "1_2_0";
 
   private static final ComponentVersion componentVersionWithCustomPackage =
       new ComponentVersionWithCustomPackage();
@@ -48,61 +33,62 @@ public class ComponentClassUtilTest {
       new ComponentVersionWithCustomPackage2();
 
 
-
   @Test
-  public void testNameAsClass() throws Exception {
+  public void testNameAsClass() {
     String result = ComponentClassUtil.getClassName(componentName, "SomeClassPostfix");
     assertThat(result, is("TestSomeClassPostfix"));
   }
 
 
   @Test
-  public void testNameAsComponentTypeEnum() throws Exception {
+  public void testNameAsComponentTypeEnum() {
     String result = ComponentClassUtil.getClassName(ComponentType.Demo, "SomeClassPostfix");
     assertThat(result, is("DemoSomeClassPostfix"));
   }
 
   @Test
-  public void testComponentClassPackagePath() throws Exception {
+  public void testComponentClassPackagePath() {
     String result =
         ComponentClassUtil.getComponentClassPackagePath(componentName, componentVersion);
     assertThat(result, is("com.mmm.his.cer.test.1_2_0"));
   }
 
   @Test
-  public void testVersionClassPackagePath() throws Exception {
+  public void testVersionClassPackagePath() {
     String result = ComponentClassUtil.getVersionClassPackagePath(componentName);
     assertThat(result, is("com.mmm.his.cer.test"));
   }
 
   @Test
-  public void testComponentClassPackagePath_customPackage() throws Exception {
+  public void testComponentClassPackagePath_customPackage() {
     String result = ComponentClassUtil.getComponentClassPackagePath(componentNameWithCustomPackage,
         componentVersion);
     assertThat(result, is("custom.package.path.test.1_2_0"));
   }
 
   @Test
-  public void testVersionClassPackagePath_customPackage() throws Exception {
+  public void testVersionClassPackagePath_customPackage() {
     String result = ComponentClassUtil.getVersionClassPackagePath(componentNameWithCustomPackage);
     assertThat(result, is("custom.package.path.test"));
   }
 
   @Test
-  public void testComponentClassPackagePath_customPackageInBoth() throws Exception {
+  public void testComponentClassPackagePath_customPackageInBoth() {
     String result = ComponentClassUtil.getComponentClassPackagePath(componentNameWithCustomPackage,
         componentVersionWithCustomPackage);
     assertThat(result, is("custom.package.path.test.1_2_0"));
   }
 
   @Test
-  public void testComponentClassPackagePath_customPackageInBoth_confilict() throws Exception {
+  public void testComponentClassPackagePath_customPackageInBoth_confilict() {
 
     thrown.expect(FoundationRuntimeException.class);
     thrown.expectMessage(
         "The base package path implementations com.mmm.his.cer.foundation.ComponentPackage for "
-            + "com.mmm.his.cer.foundation.utility.ComponentClassUtilTest$ComponentNameWithCustomPackage "
-            + "and com.mmm.his.cer.foundation.utility.ComponentClassUtilTest$ComponentVersionWithCustomPackage2 "
+            + "com.mmm.his.cer.foundation.utility"
+            + ".ComponentClassUtilTest$ComponentNameWithCustomPackage "
+            + "and com.mmm.his.cer.foundation.utility"
+            + ".ComponentClassUtilTest$ComponentVersionWithCustomPackage2 "
             + "do not match.");
     String result = ComponentClassUtil.getComponentClassPackagePath(componentNameWithCustomPackage,
         componentVersionWithCustomPackage2);
@@ -128,10 +114,10 @@ public class ComponentClassUtilTest {
   }
 
   /******************************************************************************************************
-  *
-  *
-  *
-  */
+   *
+   *
+   *
+   */
   private static class ComponentVersionWithCustomPackage
       implements ComponentVersion, ComponentPackage {
 
@@ -147,10 +133,10 @@ public class ComponentClassUtilTest {
   }
 
   /******************************************************************************************************
-  *
-  *
-  *
-  */
+   *
+   *
+   *
+   */
   private static class ComponentVersionWithCustomPackage2
       implements ComponentVersion, ComponentPackage {
 
